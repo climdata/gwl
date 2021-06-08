@@ -36,3 +36,12 @@ write.table(allGwls, file = "csv/gwl_hess_daily.csv", append = FALSE, quote = TR
 
 ```
 
+```{r gwlhess}
+
+#https://www.dwd.de/DE/leistungen/wetterlagenklassifikation/online_wlkdaten.txt?view=nasPublication&nn=16102
+
+
+
+
+
+```
