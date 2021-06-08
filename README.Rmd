@@ -8,7 +8,9 @@ output:
   pdf_document: default
 ---
 
-
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
 
 ## hess gwl serie
 
@@ -17,8 +19,9 @@ Derrived from
 https://www.pik-potsdam.de/en/output/publications/pikreports/.files/pr119.pdf
 
 
+```{r gwlhess}
 
-```r
+
 allGwls <- read.csv("./raw/hess_daily.csv", sep=",")
 
 
@@ -30,5 +33,6 @@ allGwls <- allGwls[order(allGwls$ts),]
 write.table(allGwls, file = "csv/gwl_hess_daily.csv", append = FALSE, quote = TRUE, sep = ",",
             eol = "\n", na = "NA", dec = ".", row.names = FALSE,
             col.names = TRUE, qmethod = "escape", fileEncoding = "UTF-8")
+
 ```
 
