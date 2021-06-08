@@ -1,0 +1,21 @@
+https://www.dwd.de/DE/leistungen/wetterlagenklassifikation/online_wlkdaten.txt?view=nasPublication&nn=16102
+https://www.dwd.de/DE/leistungen/wetterlagenklassifikation/online_wlkvorhersage.txt?view=nasPublication&nn=16102   (Schluessel)
+
+https://www.dwd.de/DE/leistungen/wetterlagenklassifikation/wetterlagenklassifikation.html
+
+
+
+https://www.dwd.de/DE/leistungen/wetterlagenklassifikation/kennzahlen_kennungen.html?nn=16102&lsbId=375412
+
+
+
+
+
+
+(https://www.dwd.de/DE/leistungen/rcccm/int/rcccm_int_eev.html)
+(https://www.dwd.de/DE/leistungen/rcccm/int/rcccm_int_ppp.html)
+
+
+
+
+
