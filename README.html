@@ -175,8 +175,10 @@ pre code {
 <h2>hess gwl serie</h2>
 <p>Derrived from</p>
 <p><a href="https://www.pik-potsdam.de/en/output/publications/pikreports/.files/pr119.pdf" class="uri">https://www.pik-potsdam.de/en/output/publications/pikreports/.files/pr119.pdf</a></p>
+<div id="create-plain-daily-series" class="section level3">
+<h3>Create plain daily series</h3>
+<pre class="sh"><code>python ./source/hess.py</code></pre>
 <pre class="r"><code>allGwls &lt;- read.csv(&quot;./raw/hess_daily.csv&quot;, sep=&quot;,&quot;)
-
 
 allGwls$ts &lt;- signif(allGwls$year + (allGwls$month-0.5)/12  + (allGwls$day-0.5)/365, digits=8)
 allDate &lt;- paste(allGwls$year,allGwls$month,allGwls$day, sep=&#39;-&#39;)
@@ -184,6 +186,29 @@ allGwls$time &lt;- paste(allDate, &#39;00:00:00&#39;, sep=&#39; &#39;)
 allGwls &lt;- allGwls[order(allGwls$ts),]
 
 write.table(allGwls, file = &quot;csv/gwl_hess_daily.csv&quot;, append = FALSE, quote = TRUE, sep = &quot;,&quot;,
+            eol = &quot;\n&quot;, na = &quot;NA&quot;, dec = &quot;.&quot;, row.names = FALSE,
+            col.names = TRUE, qmethod = &quot;escape&quot;, fileEncoding = &quot;UTF-8&quot;)</code></pre>
+</div>
+</div>
+<div id="dwd-gwl-serie" class="section level2">
+<h2>dwd gwl serie</h2>
+<p>Derrived from</p>
+<p><a href="https://www.dwd.de/DE/leistungen/wetterlagenklassifikation/wetterlagenklassifikation.html?nn=16102" class="uri">https://www.dwd.de/DE/leistungen/wetterlagenklassifikation/wetterlagenklassifikation.html?nn=16102</a></p>
+<p><a href="https://www.dwd.de/DE/leistungen/wetterlagenklassifikation/online_wlkdaten.txt?view=nasPublication&amp;nn=16102" class="uri">https://www.dwd.de/DE/leistungen/wetterlagenklassifikation/online_wlkdaten.txt?view=nasPublication&amp;nn=16102</a></p>
+<pre class="sh"><code>
+ [ -f ./download/dwd_gwl.txt ] &amp;&amp; mv -f ./download/dwd_gwl.txt ./download/dwd_gwl.txt.bck
+ wget -q  -O ./download/dwd_gwl.txt &#39;https://www.dwd.de/DE/leistungen/wetterlagenklassifikation/online_wlkdaten.txt?view=nasPublication&amp;nn=16102&#39;
+ ## Remove first line !!
+ tail -n +2 ./download/dwd_gwl.txt &gt; ./download/dwd_gwl.txt.tmp &amp;&amp; mv ./download/dwd_gwl.txt.tmp ./download/dwd_gwl.txt
+</code></pre>
+<pre class="r"><code>allGwls &lt;- read.csv(&quot;./raw/dwd_gwl_daily.csv&quot;, sep=&quot;,&quot;)
+
+allGwls$ts &lt;- signif(allGwls$year + (allGwls$month-0.5)/12  + (allGwls$day-0.5)/365, digits=8)
+allDate &lt;- paste(allGwls$year,allGwls$month,allGwls$day, sep=&#39;-&#39;)
+allGwls$time &lt;- paste(allDate, &#39;00:00:00&#39;, sep=&#39; &#39;)
+allGwls &lt;- allGwls[order(allGwls$ts),]
+
+write.table(allGwls, file = &quot;csv/dwd_gwl_daily.csv&quot;, append = FALSE, quote = TRUE, sep = &quot;,&quot;,
             eol = &quot;\n&quot;, na = &quot;NA&quot;, dec = &quot;.&quot;, row.names = FALSE,
             col.names = TRUE, qmethod = &quot;escape&quot;, fileEncoding = &quot;UTF-8&quot;)</code></pre>
 </div>
