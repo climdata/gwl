@@ -26,7 +26,7 @@ python ./source/hess.py
 
 
 ```r
-allGwls <- read.csv("./raw/hess_daily.csv", sep=",")
+allGwls <- read.csv("./raw/hess_daily.csv", sep=",", na.strings = "NAN")
 
 allGwls$ts <- signif(allGwls$year + (allGwls$month-0.5)/12  + (allGwls$day-0.5)/365, digits=8)
 allDate <- paste(allGwls$year,allGwls$month,allGwls$day, sep='-')
@@ -34,7 +34,7 @@ allGwls$time <- paste(allDate, '00:00:00', sep=' ')
 allGwls <- allGwls[order(allGwls$ts),]
 
 write.table(allGwls, file = "csv/gwl_hess_daily.csv", append = FALSE, quote = TRUE, sep = ",",
-            eol = "\n", na = "NA", dec = ".", row.names = FALSE,
+            eol = "\n", na = "NAN", dec = ".", row.names = FALSE,
             col.names = TRUE, qmethod = "escape", fileEncoding = "UTF-8")
 ```
 

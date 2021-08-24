@@ -178,7 +178,7 @@ pre code {
 <div id="create-plain-daily-series" class="section level3">
 <h3>Create plain daily series</h3>
 <pre class="sh"><code>python ./source/hess.py</code></pre>
-<pre class="r"><code>allGwls &lt;- read.csv(&quot;./raw/hess_daily.csv&quot;, sep=&quot;,&quot;)
+<pre class="r"><code>allGwls &lt;- read.csv(&quot;./raw/hess_daily.csv&quot;, sep=&quot;,&quot;, na.strings = &quot;NAN&quot;)
 
 allGwls$ts &lt;- signif(allGwls$year + (allGwls$month-0.5)/12  + (allGwls$day-0.5)/365, digits=8)
 allDate &lt;- paste(allGwls$year,allGwls$month,allGwls$day, sep=&#39;-&#39;)
@@ -186,7 +186,7 @@ allGwls$time &lt;- paste(allDate, &#39;00:00:00&#39;, sep=&#39; &#39;)
 allGwls &lt;- allGwls[order(allGwls$ts),]
 
 write.table(allGwls, file = &quot;csv/gwl_hess_daily.csv&quot;, append = FALSE, quote = TRUE, sep = &quot;,&quot;,
-            eol = &quot;\n&quot;, na = &quot;NA&quot;, dec = &quot;.&quot;, row.names = FALSE,
+            eol = &quot;\n&quot;, na = &quot;NAN&quot;, dec = &quot;.&quot;, row.names = FALSE,
             col.names = TRUE, qmethod = &quot;escape&quot;, fileEncoding = &quot;UTF-8&quot;)</code></pre>
 </div>
 </div>
