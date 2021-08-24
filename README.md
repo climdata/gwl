@@ -28,6 +28,9 @@ python ./source/hess.py
 ```r
 allGwls <- read.csv("./raw/hess_daily.csv", sep=",", na.strings = "NAN")
 
+allGwls$gwl <- gsub("NA", "NLA", allGwls$gwl)
+allGwls$gwl <- gsub("HNLA", "HNA", allGwls$gwl)
+
 allGwls$ts <- signif(allGwls$year + (allGwls$month-0.5)/12  + (allGwls$day-0.5)/365, digits=8)
 allDate <- paste(allGwls$year,allGwls$month,allGwls$day, sep='-')
 allGwls$time <- paste(allDate, '00:00:00', sep=' ')

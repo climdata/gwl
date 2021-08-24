@@ -180,6 +180,9 @@ pre code {
 <pre class="sh"><code>python ./source/hess.py</code></pre>
 <pre class="r"><code>allGwls &lt;- read.csv(&quot;./raw/hess_daily.csv&quot;, sep=&quot;,&quot;, na.strings = &quot;NAN&quot;)
 
+allGwls$gwl &lt;- gsub(&quot;NA&quot;, &quot;NLA&quot;, allGwls$gwl)
+allGwls$gwl &lt;- gsub(&quot;HNLA&quot;, &quot;HNA&quot;, allGwls$gwl)
+
 allGwls$ts &lt;- signif(allGwls$year + (allGwls$month-0.5)/12  + (allGwls$day-0.5)/365, digits=8)
 allDate &lt;- paste(allGwls$year,allGwls$month,allGwls$day, sep=&#39;-&#39;)
 allGwls$time &lt;- paste(allDate, &#39;00:00:00&#39;, sep=&#39; &#39;)
