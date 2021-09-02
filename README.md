@@ -62,6 +62,11 @@ https://www.dwd.de/DE/leistungen/wetterlagenklassifikation/online_wlkdaten.txt?v
 
 
 
+```sh
+python ./source/dwd.py
+```
+
+
 ```r
 allGwls <- read.csv("./raw/dwd_gwl_daily.csv", sep=",")
 

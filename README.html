@@ -204,6 +204,7 @@ write.table(allGwls, file = &quot;csv/gwl_hess_daily.csv&quot;, append = FALSE, 
  ## Remove first line !!
  tail -n +2 ./download/dwd_gwl.txt &gt; ./download/dwd_gwl.txt.tmp &amp;&amp; mv ./download/dwd_gwl.txt.tmp ./download/dwd_gwl.txt
 </code></pre>
+<pre class="sh"><code>python ./source/dwd.py</code></pre>
 <pre class="r"><code>allGwls &lt;- read.csv(&quot;./raw/dwd_gwl_daily.csv&quot;, sep=&quot;,&quot;)
 
 allGwls$ts &lt;- signif(allGwls$year + (allGwls$month-0.5)/12  + (allGwls$day-0.5)/365, digits=8)
