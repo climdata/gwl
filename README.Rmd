@@ -62,7 +62,7 @@ https://www.dwd.de/DE/leistungen/wetterlagenklassifikation/online_wlkdaten.txt?v
 
 
 ```{sh convert}
-python ./source/dwd.py
+python3 ./source/dwd.py
 ```
 
 ```{r gwldwd}
