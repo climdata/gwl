@@ -22,7 +22,7 @@ https://www.pik-potsdam.de/en/output/publications/pikreports/.files/pr119.pdf
 ### Create plain daily series
 
 ```{sh csv}
-python ./source/hess.py
+python3 ./source/hess.py
 ```
 
 ```{r gwlhess}
