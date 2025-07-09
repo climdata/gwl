@@ -21,7 +21,7 @@ https://www.pik-potsdam.de/en/output/publications/pikreports/.files/pr119.pdf
 
 
 ```sh
-python ./source/hess.py
+python3 ./source/hess.py
 ```
 
 
@@ -63,7 +63,7 @@ https://www.dwd.de/DE/leistungen/wetterlagenklassifikation/online_wlkdaten.txt?v
 
 
 ```sh
-python ./source/dwd.py
+python3 ./source/dwd.py
 ```
 
 
